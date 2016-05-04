@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <stdlib.h>
+unsigned strlen (const char * s){
+int i= 0;
+while (s[i]!= '\0'){
+    i++;
+}
+return i;
+}
+
+int esVacia(const char * s)
+{
+	return s[0]=='\0';
+}
+
+char * copiarCadena(char*s, const char* t){
+	int i=0;
+	while(t[i] !='\0'){
+		s[i]=t[i];
+		i++;
+	}
+	s[i+1]='\0';
+	return s;
+}
+
+char * anidarCadena(char*s, const char* t){
+	int i=0;
+	int j=0;
+	while(s[i] !='\0'){
+		i++;
+	}
+	while(t[j] !='\0'){
+		s[i]=t[j] ;
+		i++;
+		j++;
+	}
+	s[i+1]='\0';
+	return s;
+}
+
+int esPrefijo(const char* s, const char* t){
+	int i=0;
+	while(t[i] !='\0'){
+		if(s[i]!=t[i])
+			return 0;
+		i++;
+	}
+	return 1;
+	
+}
+
+int main (){
+char cadena[30];
+char aux[30];
+printf("Ingrese una cadena \n");
+scanf("%s", cadena);
+
+
+printf("1) %d \n",strlen (cadena));
+
+if(esVacia (cadena))
+	printf("2) Es vacia \n");
+else printf("2) No es vacia \n");
+
+printf("3) %s \n",copiarCadena(aux,cadena));
+
+printf("Ingrese una cadena auxiliar \n");
+scanf("%s", aux);
+
+printf("4) %s \n",anidarCadena(aux,cadena));
+
+
+if(esVacia (cadena))
+	printf("5) Es prefijo\n");
+else printf("5) No es prefijo \n");
+
+scanf("%s", cadena);
+return 0;
+}
