@@ -1,0 +1,35 @@
+deporte(natacion,1,1).
+deporte(surf,3,1).
+deporte(hockey,7,10).
+deporte(rugby,8,30).
+deporte(paracaidismo,9,1).
+deporte(bungeeJumping,5,1).
+deporte(karate,4,2).
+
+practica(serena, karate).
+practica(leonardo,rugby).
+practica(leonardo,natacion).
+practica(leonardo,surf).
+practica(miguelAngel,karate).
+practica(miguelAngel,paracaidismo).
+practica(miguelAngel,bungeeJumping).
+practica(miguelAngel,rugby).
+practica(rafael,karate).
+practica(marcos, ajedrez).
+ 
+practica(equipo(leonardo,[serena, miguelAngel, rafael]),karate).
+practica(equipo(rafael,[leonardo, miguelAngel]),rugby).
+practica(equipo(julia,[leonardo, marcos]),ajedrez).
+practica(equipo(leonardo,[tracey]),hockey).
+practica(equipo(rafael,[tracey]),hockey).
+
+
+miembro(equipo(Capitan,_),Capitan).
+miembro(equipo(_,Miembros),Miembro):- member(Miembro,Miembros).
+
+%practica(Deportista,Deporte):-miembro(Equipo,Deportista),practica(Equipo,Deporte).%
+
+deporteDeRiesgo(Deporte):-deporte(Deporte,Peligrosidad,Necesita),Peligrosidad>4,Necesita=1.
+deporteDeRiesgo(Deporte):-deporte(Deporte,Peligrosidad,_),Peligrosidad>=7.
+
+%maricota(Deportista):-practica(Deportista,Deporte),not (deporteDeRiesgo(Deporte)).
