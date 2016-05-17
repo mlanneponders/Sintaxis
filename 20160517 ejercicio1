@@ -1,0 +1,26 @@
+	#include <stdio.h>
+	#include <string.h>
+	#include <ctype.h>
+	
+	char *  tipoDeCaracter(const int c){
+		if	(isalpha(c)&& isupper(c))
+			return "[A-Z]";
+		else if(isalpha(c))
+			return "[a-z]";
+			else if(isdigit(c))
+				return "[0-9]";
+				else return "OTRO";
+	}
+	
+	int main(){
+
+	char cadena[30];
+	
+	printf("Ingrese una cadena \n");
+	scanf("%[^\n]", cadena);
+	printf("1)");
+	for(int i = 0;cadena[i] != '\0';i++)
+		printf("%s \n",tipoDeCaracter(cadena[i]));			
+		
+		
+	}
