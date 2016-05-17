@@ -1,0 +1,30 @@
+	#include <string.h>
+	#include <ctype.h>
+	#include <stdio.h>
+	void mostrarMatriz(int columnas,int filas,const int matriz[columnas][filas]){
+		for (int i,j=0;i<=(filas-1);i++){
+			for (j=0;j<=(columnas-1);j++)
+				printf("%d ",matriz[i][j]);
+			printf("\n");
+		}
+	}
+	
+	int main()
+	{
+		int columnas;
+		int filas;
+		printf("Ingresar cantidad de columnas \n");
+		scanf("%d",&columnas);
+		printf("Ingresar cantidad de filas \n");
+		scanf("%d",&filas);
+		
+		
+		int matriz[columnas][filas];
+		for (int i,j=0;i<=(filas-1);i++){
+			for (j=0;j<=(columnas-1);j++)
+				scanf("%d",&matriz[i][j]);
+		}		
+		printf("\n La matriz es: \n");
+
+		mostrarMatriz(columnas,filas,matriz);
+	}
